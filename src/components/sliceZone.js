@@ -1,10 +1,10 @@
 import React from 'react';
 import Hero from './hero';
 import CallToActionGrid from './CallToActionGrid';
+import PriceList from './priceList';
 
 
 const SliceZone = ({body}) => {
-  console.log(body, 'cuerpo')
   return (
     <div>
       {body.map((bodyContent, i) =>{
@@ -24,6 +24,15 @@ const SliceZone = ({body}) => {
               key={i} 
               title={bodyContent.primary.section_title}
               callToActions={bodyContent.fields}
+            />
+          )
+        }
+        else if(bodyContent.type === 'price_list2'){
+          return(
+            <PriceList 
+              key={i}
+              title={bodyContent.primary.title}
+              prices={bodyContent.fields}
             />
           )
         }

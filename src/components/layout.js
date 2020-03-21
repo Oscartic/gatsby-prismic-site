@@ -25,10 +25,13 @@ const NavLinks = styled.nav`
 `;
 
 const Branding = styled.div`
-  color: orange;
-  font-weight:bold;
   margin: auto 0;
-  font-size: 1.4em;
+  a {
+    color: orange;
+    font-weight:bold;
+    font-size: 1.4em;
+    text-decoration: none;
+  }
 `;
 
 const NavLink = styled.div`
@@ -49,7 +52,7 @@ const Main = styled.main`
 `;
 
 const navigationQuery = graphql`
-  query MyQuery {
+  query {
   prismic {
     allNavigations {
       edges {
@@ -58,6 +61,12 @@ const navigationQuery = graphql`
           navigation_links {
             label
             link {
+              ... on PRISMIC_Contact_page {
+                form_title
+                _meta {
+                  uid
+                }
+              }
               ... on PRISMIC_Page {
                 _meta {
                   uid
@@ -85,7 +94,9 @@ const Layout = ({ children }) => {
             return (
               <>
                 <Branding>
-                  {data.prismic.allNavigations.edges[0].node.branding}
+                  <Link to="/">
+                    {data.prismic.allNavigations.edges[0].node.branding}
+                  </Link>
                 </Branding>
                 <NavLinks>
                   {data.prismic.allNavigations.edges[0].node.navigation_links.map((link)=>{ 

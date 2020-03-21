@@ -1,5 +1,5 @@
 import React from 'react';
-import { RichText } from 'prismic-reactjs'; 
+import RichText from './richText'; 
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
@@ -36,7 +36,6 @@ const Button = styled.div`
 `;
 
 const CallToActionBlock = ({ title, content, buttonLabel, buttonDestination, featuredImage }) => {
-  console.log(title)
   return (
     <CaLLToActionBlockWrapper>
       <RichText render={title} />

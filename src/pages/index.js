@@ -42,6 +42,19 @@ export const query = graphql`
                   content
                 }
               }
+              ... on PRISMIC_HomepageBodyPrice_list2 {
+                type
+                label
+                primary {
+                  title
+                }
+                fields {
+                  price_list_description
+                  price_list_title
+                  price_per_month
+                  price_type
+                }
+              }
             }
           }
         }
@@ -51,6 +64,7 @@ export const query = graphql`
 `;
 
 const IndexPage = (props) => {
+  console.log(props)
   return (
     <Layout>
       <SliceZone body={props.data.prismic.allHomepages.edges[0].node.body}/>
