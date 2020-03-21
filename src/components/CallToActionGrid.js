@@ -9,15 +9,19 @@ const CallToActionGridWrapper = styled.section`
 `;
 
 const CallToActionGrid = ({ title, callToActions }) => {
-  console.log(callToActions)
   return (
     <CallToActionGridWrapper>
       <RichText render={title} />
       {callToActions.map((callToAction, i) => {
         return (
-          <div key={i}>
-            Call to action
-          </div>
+          <CallToActionBlock 
+            key={i}
+            title={callToAction.call_to_the_action_title}
+            content={callToAction.content}
+            buttonLabel={callToAction.button_label}
+            buttonDestination={`/${callToAction.button_destination._meta.uid}`} 
+            featuredImage={callToAction.featured_image.url}
+          />
         )
       })}
     </CallToActionGridWrapper>
