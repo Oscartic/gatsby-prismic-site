@@ -72,7 +72,6 @@ const ContactUs = (props) => {
           method="POST"
           date-netlify="true" 
           action="/contact-success"
-          onSubmit={e => e.preventDefault()}
         >
           <input type="hidden" name="form-name" value="contact-us" />
           {props.data.prismic.allContact_pages.edges[0].node.form_fields.map((field, i) => {
