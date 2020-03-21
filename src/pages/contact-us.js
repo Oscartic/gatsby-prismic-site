@@ -70,7 +70,7 @@ const ContactUs = (props) => {
         <Form
           name="contact-us"
           method="POST"
-          date-netlify="true" 
+          data-netlify="true" 
           action="/contact-success"
         >
           <input type="hidden" name="form-name" value="contact-us" />
